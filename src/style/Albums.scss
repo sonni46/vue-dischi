@@ -1,0 +1,12 @@
+.albums {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+        img {
+             width: calc(60vw / 4 - 20px);
+             height: 15vw;
+            //  margin: 0 auto;
+             padding: 20px;
+             
+        }
+}

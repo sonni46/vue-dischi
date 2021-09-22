@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div class="albums">
       <img :src="prod.poster" alt="">
-      <h1>{{prod.title}}</h1>
-      <h3>{{prod.author}}</h3>
-      <h4>{{prod.year}}</h4>
+      <div>
+        <!-- <h1>{{prod.title}}</h1>
+        <h3>{{prod.author}}</h3>
+        <h4>{{prod.year}}</h4> -->
+      </div>
   </div>
 </template>
 
@@ -13,6 +15,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+@import "@/style/Albums";
 </style>
