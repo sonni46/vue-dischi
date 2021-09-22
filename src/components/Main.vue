@@ -1,5 +1,5 @@
 <template>
- <div class="d-flex">
+ <div class="d-flex flex-wrap">
    <Albums v-for="(album,index) in AlbumsLink" :key="index" :prod="album"/>
  </div>
 </template>

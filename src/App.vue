@@ -1,8 +1,8 @@
 <template>
-<div>
+<div class="container-app black">
   <Header/>
   <div class="container">
-      <Main/>
+    <Main/>
   </div>
 </div>
 </template>

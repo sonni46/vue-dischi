@@ -1,11 +1,13 @@
 <template>
   <div class="albums">
+    <div class="album">
       <img :src="prod.poster" alt="">
-      <div>
-        <!-- <h1>{{prod.title}}</h1>
+      <div class="info">
+        <h2>{{prod.title}}</h2>
         <h3>{{prod.author}}</h3>
-        <h4>{{prod.year}}</h4> -->
+        <h4>{{prod.year}}</h4>
       </div>
+    </div>
   </div>
 </template>
 
