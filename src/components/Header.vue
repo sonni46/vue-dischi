@@ -2,9 +2,9 @@
   <div class="logo">
     <img src="https://images-na.ssl-images-amazon.com/images/I/41xu2Bdb4oL.jpg" alt="">
     <div>
-      <select v-model="info" @change="$emit('valueGenres',info)" name="" id="">
-        <option value="all">All</option>
-        <option v-for="(genre,index) in genreList" :key="index" :value="genre.genre">{{genre.genre}}</option>
+      <select v-model="info" @change="$emit('valueSelect',info)" name="" id="">
+        <option value="All">All</option>
+        <option v-for="(genre,index) in genresFilter" :key="index" :value="genre" >{{genre}}</option>
       </select>
     </div>
   </div>
@@ -14,11 +14,10 @@
 const axios = require('axios');
 export default {
     name : "Header",
-    data () {
+    data() {
       return {
         genreList: [],
-        genreListFilter: [],
-        info:"all",
+        info:"All",
       }
     },
     created() {
@@ -29,18 +28,21 @@ export default {
       genres() {
      axios.get("https://flynn.boolean.careers/exercises/api/array/music")
       .then(el => {
-        this.genreList = el.data.response;
+            this.genreList = el.data.response;
       })
     },
-    },
+  },
     computed : {
-    //    genresFilter () {
-    //    return this.genreList.filter(element => {
-    //     if(this.genreListFilter.includes(element.genre)) {
-    //        return this.genreListFilter.push(element.genre);
-    //     }
-    //   });
-    // }
+      genresFilter() {
+        const filterGen=[];
+        this.genreList.forEach((album)=>{
+        if(filterGen.includes(album.genre) == false){
+          filterGen.push(album.genre);
+        }
+      })
+      return filterGen;
+    },
+       
     }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
 <div class="container-app black">
-  <Header @valueGenres="valueHeader" :filterGenre="value" />
+  <Header @valueSelect="valueHeader" :filterGenre="value" />
   <div class="container">
     <Main/>
   </div>
@@ -16,9 +16,9 @@ export default {
     Header,
     Main
   },
-  data (){
+  data(){
     return {
-      value :"all",
+      value :"All",
     }
   },
   created() {
@@ -26,6 +26,7 @@ export default {
   },
   methods : {
   valueHeader(info) {
+    // console.log(info)
     this.value = info
   }
 

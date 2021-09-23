@@ -24,28 +24,34 @@ export default {
       APIUrl:"https://flynn.boolean.careers/exercises/api/array/music",
       AlbumsLink:[],
       Loader: true,
+      returnValue: this.filterGenre
     }
   },
   created() {
     this.albumList();
+    // this.genresHeaderFilter()
   },
   computed: {
     genresHeaderFilter() {
-      return this.AlbumsLink.filter((el)=>{
-        if(){
-        return el.genre.includes(this.filterGenre)
+      const filterDisc = this.AlbumsLink.filter((el)=>{
+        if(this.returnValue == "All"){
+          return true
+        }
+        else if (el.genre == this.returnValue) {
+          return true
         }
       })
+      return filterDisc
     }
   },
   methods: {
     albumList() {
      axios.get(this.APIUrl)
       .then(el => {
-        console.log(el.data.response)
+        // console.log(el.data.response)
         this.AlbumsLink = el.data.response;
       })
-      setTimeout(() => {this.Loader = false;},3000)
+      setTimeout(() => {this.Loader = false;},2000)
     },
   }
 }
