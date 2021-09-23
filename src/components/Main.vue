@@ -34,9 +34,9 @@ export default {
       .then(el => {
         console.log(el.data.response)
         this.AlbumsLink = el.data.response;
-        setTimeout(() => {this.Loader = false;},3000)
       })
-    }
+      setTimeout(() => {this.Loader = false;},3000)
+    },
   }
 }
 </script>
