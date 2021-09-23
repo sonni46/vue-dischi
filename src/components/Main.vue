@@ -1,7 +1,7 @@
 <template>
  <div>
     <div v-if="Loader == false" class="d-flex flex-wrap">
-      <Albums v-for="(album,index) in AlbumsLink" :key="index" :prod="album"/>
+      <Albums v-for="(album,index) in genresHeaderFilter" :key="index" :prod="album"/>
     </div>
     <Loader v-else/>
  </div>
@@ -18,6 +18,7 @@ export default {
         Albums,
         Loader
     },
+    props:["filterGenre"],
   data() {
     return{
       APIUrl:"https://flynn.boolean.careers/exercises/api/array/music",
@@ -27,6 +28,15 @@ export default {
   },
   created() {
     this.albumList();
+  },
+  computed: {
+    genresHeaderFilter() {
+      return this.AlbumsLink.filter((el)=>{
+        if(){
+        return el.genre.includes(this.filterGenre)
+        }
+      })
+    }
   },
   methods: {
     albumList() {

@@ -1,6 +1,6 @@
 <template>
 <div class="container-app black">
-  <Header/>
+  <Header @valueGenres="valueHeader" :filterGenre="value" />
   <div class="container">
     <Main/>
   </div>
@@ -15,6 +15,20 @@ export default {
   components: {
     Header,
     Main
+  },
+  data (){
+    return {
+      value :"all",
+    }
+  },
+  created() {
+    this.valueHeader()
+  },
+  methods : {
+  valueHeader(info) {
+    this.value = info
+  }
+
   }
 }
 </script>
