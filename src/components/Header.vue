@@ -22,7 +22,6 @@ export default {
     },
     created() {
       this.genres();
-      this.genresFilter();
     },
     methods: {
       genres() {

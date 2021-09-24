@@ -24,20 +24,19 @@ export default {
       APIUrl:"https://flynn.boolean.careers/exercises/api/array/music",
       AlbumsLink:[],
       Loader: true,
-      returnValue: this.filterGenre
     }
   },
   created() {
     this.albumList();
-    // this.genresHeaderFilter()
   },
   computed: {
     genresHeaderFilter() {
-      const filterDisc = this.AlbumsLink.filter((el)=>{
-        if(this.returnValue == "All"){
+      let filterDisc = this.AlbumsLink.filter((el)=>{
+        console.log(el.genre)
+        if(this.filterGenre == "All"){
           return true
         }
-        else if (el.genre == this.returnValue) {
+        else if (el.genre == this.filterGenre) {
           return true
         }
       })

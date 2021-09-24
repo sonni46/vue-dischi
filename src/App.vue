@@ -1,8 +1,9 @@
 <template>
 <div class="container-app black">
-  <Header @valueSelect="valueHeader" :filterGenre="value" />
+  <Header @valueSelect="valueHeader" />
   <div class="container">
-    <Main/>
+    <Main
+    :filterGenre="value"/>
   </div>
 </div>
 </template>
@@ -27,6 +28,7 @@ export default {
   methods : {
   valueHeader(info) {
     // console.log(info)
+    if(info == undefined) return this.value
     this.value = info
   }
 
